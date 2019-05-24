@@ -10,10 +10,10 @@ class Deck:
 
     def build(self):
         suits = Card.suits.keys()
-        values = Card.values
+        ranks = Card.ranks
         for suit in suits:
-            for value in values:
-                self.cards.append(Card(value, suit))
+            for rank in ranks:
+                self.cards.append(Card(suit, rank))
 
     def shuffle(self):
         random.shuffle(self.cards)
@@ -26,4 +26,4 @@ class Deck:
         return str(self.cards)
 
     def is_empty(self):
-        return not bool(self.cards)
+        return len(self.cards) == 0

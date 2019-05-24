@@ -4,7 +4,7 @@ from components.table import Table
 
 
 table = Table(players=[Player() for _ in range(4)])
-deck = Deck()
+deck = Deck().shuffle()
 
 while not deck.is_empty():
     for p in table.players:
