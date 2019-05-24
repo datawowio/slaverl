@@ -1,11 +1,16 @@
-from components.deck import Deck
 from components.player import Player
 from components.table import Table
 
 
-table = Table(players=[Player(player_id=i) for i in range(4)])
-deck = Deck().shuffle()
+class Game:
+    def __init__(self):
+        self.table = Table(players=[Player(player_id=i) for i in range(4)])
 
-while not deck.is_empty():
-    for p in table.players:
-        p.draw_card(deck)
+    def play_round(self):
+        self.table.reset_for_next_round()
+        for p in self.table.players:
+            print(f"{p}{p.cards} {p.title}")
+
+
+game = Game()
+game.play_round()
