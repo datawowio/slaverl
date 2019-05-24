@@ -1,7 +1,7 @@
 from .deck import Deck
 
 
-class Table:
+class Table(object):
     direction_diff_value = {'cw': 1, 'ccw': -1}
 
     def __init__(self, players, direction='cw', current_player_index=0):

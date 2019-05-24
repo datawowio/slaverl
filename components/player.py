@@ -1,7 +1,7 @@
 from .card import Card
 
 
-class Player:
+class Player(object):
     def __init__(self, player_id=None, title=None):
         self.title = title
         self.player_id = player_id

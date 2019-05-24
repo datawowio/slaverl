@@ -2,7 +2,7 @@ from components.player import Player
 from components.table import Table
 
 
-class Game:
+class Game(object):
     def __init__(self):
         self.table = Table(players=[Player(player_id=i) for i in range(4)])
 

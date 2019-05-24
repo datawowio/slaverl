@@ -3,7 +3,7 @@ import random
 from .card import Card
 
 
-class Deck:
+class Deck(object):
     def __init__(self):
         self.cards = []
         self.build()
