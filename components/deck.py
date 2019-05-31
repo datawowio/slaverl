@@ -22,8 +22,8 @@ class Deck(object):
     def draw(self):
         return self.cards.pop(0)
 
-    def __repr__(self):
-        return str(self.cards)
-
     def is_empty(self):
         return len(self.cards) == 0
+
+    def __repr__(self):
+        return str(self.cards)

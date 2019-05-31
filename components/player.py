@@ -15,9 +15,6 @@ class Player(object):
     def has_won(self):
         return len(self.cards) == 0
 
-    def __repr__(self):
-        return f"player[id={self.player_id}]"
-
     def reset_for_next_round(self):
         self.is_passing = False
         self.won_place = False
@@ -28,3 +25,9 @@ class Player(object):
             if card == Card(suit='club', rank='3'):
                 return True
         return False
+
+    def need_action(self):
+        return not self.has_won() and not self.is_passing()
+
+    def __repr__(self):
+        return f"player[id={self.player_id}]"
