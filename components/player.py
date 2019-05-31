@@ -17,7 +17,10 @@ class Player(object):
 
     def reset_for_next_round(self):
         self.is_passing = False
-        self.won_place = False
+
+    def reset_for_next_match(self):
+        self.is_passing = False
+        self.won_place = None
         self.cards = []
 
     def has_the_smallest_card(self):
@@ -27,7 +30,15 @@ class Player(object):
         return False
 
     def need_action(self):
-        return not self.has_won() and not self.is_passing()
+        return not self.has_won() and not self.is_passing
+
+    def take_action(self, game, action_function):
+        if not self.need_action():
+            return
+
+        while True:
+            action_function(game)
+        return
 
     def __repr__(self):
         return f"player[id={self.player_id}]"

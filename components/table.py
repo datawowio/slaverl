@@ -8,7 +8,7 @@ class Table(object):
         self.players = players
         self.direction = direction
         self.current_player_index = current_player_index
-        self.reset_for_next_round()
+        self.reset_for_next_match()
 
     def next_player(self):
         self.current_player_index += self.direction_diff_value[self.direction]
@@ -41,10 +41,14 @@ class Table(object):
         return distance
 
     def reset_for_next_round(self):
+        for player in self.players:
+            player.reset_for_next_round()
+
+    def reset_for_next_match(self):
         deck = Deck().shuffle()
 
         for player in self.players:
-            player.reset_for_next_round()
+            player.reset_for_next_match()
 
         slave = self.get_player_by_title('slave')
         if slave:
