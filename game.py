@@ -2,7 +2,9 @@ from components.player import Player
 from components.table import Table
 
 
-def action_function(game, is_exchange_phase, player):
+def action_function(game_state, possible_actions, player):
+    # TODO: Placeholder function to interact with environment
+    return possible_actions[0]
 
 
 
@@ -22,13 +24,16 @@ class Game(object):
         current_player = self.table.get_current_player()
         while not self.is_round_ended():
             while True:
-                try:
-                    action = action_function()
-                    break
-                except:
-
+                # TODO: Get action from user injected function
+                action = action_function(game_state=self.state,
+                                         possible_actions=[],
+                                         player=current_player)
+                # TODO: Interact to the enviroment with the action acquired
 
             current_player = self.table.next_player()
+
+        # TODO: Check if it has to reverse the direction. Then set current
+        # player to the correct one
 
         self.table.reset_for_next_round()
 
